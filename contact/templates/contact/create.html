@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">Address Book</h1>
+            <p class="lead">Here you can create a new contact.</p>
+          </div>
+        </div>
+
+        <form method="POST" action="{% url 'contact:create' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="firstname" placeholder="First name">
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" aria-describedby="lastname" placeholder="Last name">
+          </div>
+
+
+          <div class="form-group">
+            <label for="number">Number</label>
+            <input type="number" class="form-control" id="number" name="number" aria-describedby="number" placeholder="Number">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create Contact</button>
+        </form>
+    </div>
+
+{% endblock %}
